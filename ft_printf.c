@@ -6,7 +6,7 @@
 /*   By: csiqueir <carlos.felipe@hotmail.com.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 20:07:47 by csiqueir          #+#    #+#             */
-/*   Updated: 2022/07/02 20:57:24 by csiqueir         ###   ########.fr       */
+/*   Updated: 2022/07/02 22:15:24 by csiqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,11 @@
 
 int	ft_putstr(char *s)
 {
-/*	int	i;
-
-	i = 0;*/
 	if (!s)
 		return 0;
-	/*while (s[i])
-	{*/
-		write(1,s, strlen(s));
-	/*	i++;
-	}*/
+
+	write(1,s, strlen(s));
+
 	return strlen(s);
 }
 
@@ -37,6 +32,7 @@ int ft_printf(const char *output, ...)
 	va_list args;
 	int variable;
 	int index;
+	char c;
 
 	index = 0;
 	variable = 0;
@@ -45,7 +41,7 @@ int ft_printf(const char *output, ...)
 	{
 		if (output[index] != '%')
 		{
-			putchar(output[index]);
+			write(1,&output[index],1);
 			variable++;
 			index++;
 		}
@@ -54,7 +50,8 @@ int ft_printf(const char *output, ...)
 			index++;
 			if (output[index] == 'c')
 			{
-				putchar(va_arg(args, int));
+				c = va_arg(args, int);
+				write(1,&c ,1);
 				variable++;
 				index++;
 			}
@@ -70,6 +67,6 @@ int ft_printf(const char *output, ...)
 }
 int main()
 {
-	ft_printf("Printing characters: '%c' '%s' '%c' '%s'", 'A', "AA",'B',"BB");
+	ft_printf("Printing characters: '%c' '%s' '%c' '%s'", 'A', "AA",'B',"BBB");
 	return 0;
 }
