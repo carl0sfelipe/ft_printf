@@ -6,7 +6,7 @@
 /*   By: csiqueir <carlos.felipe@hotmail.com.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 20:07:47 by csiqueir          #+#    #+#             */
-/*   Updated: 2022/07/04 22:18:03 by csiqueir         ###   ########.fr       */
+/*   Updated: 2022/07/04 23:17:38 by csiqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,11 @@ int ft_printf(const char *output, ...)
 			else if (output[index] == 's')
 			{
 				variable += ft_putstr(va_arg(args, char *));
+				index++;
+			}
+			 else if (output[index] == 'i' || output[index] == 'd')
+			{
+				variable += ft_putnbr(va_arg(args, int));
 				index++;
 			}
 		}
