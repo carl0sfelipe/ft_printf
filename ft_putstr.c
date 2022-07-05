@@ -6,11 +6,11 @@
 /*   By: csiqueir <carlos.felipe@hotmail.com.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 21:20:59 by csiqueir          #+#    #+#             */
-/*   Updated: 2022/07/04 22:10:51 by csiqueir         ###   ########.fr       */
+/*   Updated: 2022/07/05 00:03:59 by csiqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_putstr(char *s)
 {
