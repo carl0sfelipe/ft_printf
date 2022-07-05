@@ -6,25 +6,11 @@
 /*   By: csiqueir <carlos.felipe@hotmail.com.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 20:07:47 by csiqueir          #+#    #+#             */
-/*   Updated: 2022/07/02 22:15:24 by csiqueir         ###   ########.fr       */
+/*   Updated: 2022/07/04 22:18:03 by csiqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include <stdarg.h>
-#include <unistd.h>
-
-
-int	ft_putstr(char *s)
-{
-	if (!s)
-		return 0;
-
-	write(1,s, strlen(s));
-
-	return strlen(s);
-}
+#include "printf.h" 
 
 
 int ft_printf(const char *output, ...)
@@ -45,7 +31,7 @@ int ft_printf(const char *output, ...)
 			variable++;
 			index++;
 		}
-		else
+		else if(ft_strchr("cspdiuxX%",output[index + 1]))
 		{
 			index++;
 			if (output[index] == 'c')
@@ -64,9 +50,4 @@ int ft_printf(const char *output, ...)
 	}
 	va_end(args);
 	return (variable);
-}
-int main()
-{
-	ft_printf("Printing characters: '%c' '%s' '%c' '%s'", 'A', "AA",'B',"BBB");
-	return 0;
 }
