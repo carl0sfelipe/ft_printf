@@ -24,7 +24,7 @@ static char	*if_zero(char *str)
 	return (str);
 }
 
-char	*ft_itoa(int n)
+char	*ft_utoa(unsigned int n)
 {
 	char		*str;
 	long int	i;

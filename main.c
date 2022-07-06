@@ -2,6 +2,6 @@
 
 int main()
 {
-	ft_printf("Printing characters: '%c' '%s' '%i' '%d'", 'A', "AA",321,9);
+	ft_printf("Printing characters: '%c' '%s' '%u' '%d'", 'A', "AA",-1,9);
 	return 0;
 }
