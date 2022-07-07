@@ -16,31 +16,33 @@
 int ft_printf(const char *output, ...)
 {
 	va_list args;
-	int variable;
+	int ret;
 	int index;
 
 	index = 0;
-	variable = 0;
+	ret = 0;
 	va_start(args, output);
 	while (output[index])
 	{
 		if (output[index] != '%')
-			variable += ft_printchar(output[index++]);
+			ret += write(1,&output[index++],1);
 
 		else if(ft_strchr("cspdiuxX%",output[index + 1]))
 		{
 			index++;
 			if (output[index] == 'c')
-				variable += ft_printchar(va_arg(args, int));
+				ret += ft_printchar(va_arg(args, int));
 			else if (output[index] == 's')
-				variable += ft_putstr(va_arg(args, char *));
+				ret += ft_putstr(va_arg(args, char *));
 			 else if (output[index] == 'i' || output[index] == 'd')
-				variable += ft_putnbr(va_arg(args, int));
+				ret += ft_putnbr(va_arg(args, int));
 			else if (output[index] == 'u')
-				variable += ft_putunbr(va_arg(args, int));
+				ret += ft_putunbr(va_arg(args, int));
+			else if (output[index] == '%')
+				ret += write(1,&output[index],1);
 			index++;
 		}
 	}
 	va_end(args);
-	return (variable);
+	return (ret);
 }
