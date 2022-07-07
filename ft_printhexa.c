@@ -23,7 +23,7 @@ void	ft_puthex(unsigned int num, int format)
 	else
 	{
 		if (num <= 9)
-			ft_princhar((num + '0'));
+			ft_printchar((num + '0'));
 		else
 		{
 			if (format == 'x')
@@ -34,7 +34,7 @@ void	ft_puthex(unsigned int num, int format)
 	}
 }
 
-int	ft_print_hexa(unsigned long long num, int format)
+int	ft_printhexa(unsigned long long num, int format)
 {
 	if (num == 0)
 		return (write(1, "0", 1));

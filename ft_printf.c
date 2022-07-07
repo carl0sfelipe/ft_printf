@@ -6,7 +6,7 @@
 /*   By: csiqueir <carlos.felipe@hotmail.com.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 20:07:47 by csiqueir          #+#    #+#             */
-/*   Updated: 2022/07/06 20:26:20 by csiqueir         ###   ########.fr       */
+/*   Updated: 2022/07/07 16:35:54 by csiqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int ft_printf(const char *output, ...)
 		if (output[index] != '%')
 			ret += write(1,&output[index++],1);
 
-		else if(ft_strchr("cspdiuxX%",output[index + 1]))
+		else if(ft_strchr("cspdiuxX%",output[index++]))
 		{
-			index++;
+			//index++;
 			if (output[index] == 'c')
 				ret += ft_printchar(va_arg(args, int));
 			else if (output[index] == 's')
@@ -42,8 +42,10 @@ int ft_printf(const char *output, ...)
 				ret += write(1,&output[index],1);
 			else if (output[index] == 'x')
 				ret += ft_printhexa(va_arg(args, unsigned int),87);
+			index++;
 		}
-	}index++;
+	//index++;
+	}
 	va_end(args);
 	return (ret);
 }
