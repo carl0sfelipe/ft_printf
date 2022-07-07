@@ -40,7 +40,7 @@ int ft_printf(const char *output, ...)
 				ret += ft_putunbr(va_arg(args, int));
 			else if (output[index] == '%')
 				ret += write(1,&output[index],1);
-			else if (output[index] == 'x')
+			else if (output[index] == 'x' || output[index] == 'X')
 				ret += ft_printhexa(va_arg(args, unsigned int),87);
 			index++;
 		}

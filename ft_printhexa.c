@@ -1,44 +1,36 @@
 #include "ft_printf.h"
 
-int	ft_hex_len(unsigned	long long num)
+static int	ft_countdigits_hex(unsigned long long res)
 {
-	int	len;
+	int	counter;
 
-	len = 0;
-	while (num != 0)
+	counter = 0;
+	if (res == 0)
+		return (1);
+	while (res > 0)
 	{
-		len++;
-		num = num / 16;
+		res = res / 16;
+		counter++;
 	}
-	return (len);
+	return (counter);
 }
 
-void	ft_puthex(unsigned int num, int format)
+int	ft_printhexa(unsigned long long n, int b)
 {
-	if (num >= 16)
-	{
-		ft_puthex(num / 16, format);
-		ft_puthex(num % 16, format);
-	}
+	int	i;
+
+	i = 0;
+	if (n > 15)
+		ft_printhexa(n / 16, b);
+	if (n % 16 < 10)
+		i += ft_printchar(n % 16 + '0');
 	else
-	{
-		if (num <= 9)
-			ft_printchar((num + '0'));
-		else
-		{
-			if (format == 'x')
-				ft_printchar((num - 10 + 'a'));
-			if (format == 'X')
-				ft_printchar((num - 10 + 'A'));
-		}
-	}
+		i += ft_printchar(n % 16 + b);
+	return (ft_countdigits_hex(n));
 }
 
-int	ft_printhexa(unsigned long long num, int format)
+int main(void)
 {
-	if (num == 0)
-		return (write(1, "0", 1));
-	else
-		ft_puthex(num, format);
-	return (ft_hex_len(num));
+	ft_printhexa(43654,87);
+	return 0;
 }
