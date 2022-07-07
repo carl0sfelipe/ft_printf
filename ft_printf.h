@@ -18,5 +18,6 @@ int ft_printchar(int param);
 int	ft_putunbr(unsigned int n);
 char	*ft_utoa(unsigned int n);
 int	ft_printhexa(unsigned long long num, int format);
+int ft_printptr(unsigned long long ptr, int format);
 
 #endif

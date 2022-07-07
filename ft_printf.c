@@ -6,7 +6,7 @@
 /*   By: csiqueir <carlos.felipe@hotmail.com.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 20:07:47 by csiqueir          #+#    #+#             */
-/*   Updated: 2022/07/07 16:35:54 by csiqueir         ###   ########.fr       */
+/*   Updated: 2022/07/07 18:37:03 by csiqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@ int ft_printf(const char *output, ...)
 				ret += write(1,&output[index],1);
 			else if (output[index] == 'x')
 				ret += ft_printhexa(va_arg(args, unsigned int),87);
+			else if (output[index] == 'X')
+				ret += ft_printhexa(va_arg(args, unsigned int),55);
+			else if (output[index] == 'p')
+				ret += ft_printptr(va_arg(args, unsigned long long),87);
 			index++;
 		}
 	//index++;
