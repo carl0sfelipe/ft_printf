@@ -9,7 +9,8 @@ SRCS = 		ft_itoa.c\
 			ft_strdup.c\
 			ft_strlcpy.c\
 			ft_strlen.c\
-			ft_utoa.c
+			ft_utoa.c\
+			ft_print_hexa.c
 
 OBJS	= ${SRCS:.c=.o}
 
