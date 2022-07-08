@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printchar.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csiqueir <csiqueir@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/08 19:50:01 by csiqueir          #+#    #+#             */
+/*   Updated: 2022/07/08 19:51:22 by csiqueir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf.h" 
 
-int ft_printchar(int param)
+int	ft_printchar(int param)
 {
-        return write(1,&param,1);
+	return (write(1, &param, 1));
 }

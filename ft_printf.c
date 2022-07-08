@@ -6,18 +6,17 @@
 /*   By: csiqueir <carlos.felipe@hotmail.com.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 20:07:47 by csiqueir          #+#    #+#             */
-/*   Updated: 2022/07/07 18:37:03 by csiqueir         ###   ########.fr       */
+/*   Updated: 2022/07/08 19:49:44 by csiqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h" 
+#include "ft_printf.h"
 
-
-int ft_printf(const char *output, ...)
+int	ft_printf(const char *output, ...)
 {
-	va_list args;
-	int ret;
-	int index;
+	va_list	args;
+	int		ret;
+	int		index;
 
 	index = 0;
 	ret = 0;
@@ -25,30 +24,12 @@ int ft_printf(const char *output, ...)
 	while (output[index])
 	{
 		if (output[index] != '%')
-			ret += write(1,&output[index++],1);
-
-		else if(ft_strchr("cspdiuxX%",output[index++]))
+			ret += write(1, &output[index++], 1);
+		else if (ft_strchr("cspdiuxX%", output[index++]))
 		{
-			//index++;
-			if (output[index] == 'c')
-				ret += ft_printchar(va_arg(args, int));
-			else if (output[index] == 's')
-				ret += ft_putstr(va_arg(args, char *));
-			 else if (output[index] == 'i' || output[index] == 'd')
-				ret += ft_putnbr(va_arg(args, int));
-			else if (output[index] == 'u')
-				ret += ft_putunbr(va_arg(args, int));
-			else if (output[index] == '%')
-				ret += write(1,&output[index],1);
-			else if (output[index] == 'x')
-				ret += ft_printhexa(va_arg(args, unsigned int),87);
-			else if (output[index] == 'X')
-				ret += ft_printhexa(va_arg(args, unsigned int),55);
-			else if (output[index] == 'p')
-				ret += ft_printptr(va_arg(args, unsigned long long),87);
+			ret += ft_printarg(output[index], args);
 			index++;
 		}
-	//index++;
 	}
 	va_end(args);
 	return (ret);

@@ -11,7 +11,9 @@ SRCS = 		ft_itoa.c\
 			ft_strlen.c\
 			ft_utoa.c\
 			ft_printhexa.c\
-			ft_printptr.c
+			ft_printptr.c\
+			ft_printarg.c
+		
 
 OBJS	= ${SRCS:.c=.o}
 

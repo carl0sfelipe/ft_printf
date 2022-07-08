@@ -1,30 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printhexa.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: csiqueir <csiqueir@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/08 18:34:31 by csiqueir          #+#    #+#             */
+/*   Updated: 2022/07/08 18:34:34 by csiqueir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int	ft_countdigits_hex(unsigned long long res)
 {
-	int	counter;
+	int	len;
 
-	counter = 0;
+	len = 0;
 	if (res == 0)
 		return (1);
 	while (res > 0)
 	{
 		res = res / 16;
-		counter++;
+		len++;
 	}
-	return (counter);
+	return (len);
 }
 
-int	ft_printhexa(unsigned long long n, int b)
+int	ft_printhexa(unsigned long long n, int format)
 {
-	int	i;
+	int	index;
 
-	i = 0;
+	index = 0;
 	if (n > 15)
-		ft_printhexa(n / 16, b);
+		ft_printhexa(n / 16, format);
 	if (n % 16 < 10)
-		i += ft_printchar(n % 16 + '0');
+		index += ft_printchar(n % 16 + '0');
 	else
-		i += ft_printchar(n % 16 + b);
+		index += ft_printchar(n % 16 + format);
 	return (ft_countdigits_hex(n));
 }
