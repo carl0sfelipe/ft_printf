@@ -15,7 +15,7 @@ static int	ft_countdigits_hex(unsigned long long res)
 	return (counter);
 }
 
-int	ft_printhexa(unsigned long long n)
+int	ft_printhexa(unsigned long long n, int b)
 {
 	int	i;
 
@@ -25,6 +25,6 @@ int	ft_printhexa(unsigned long long n)
 	if (n % 16 < 10)
 		i += ft_printchar(n % 16 + '0');
 	else
-		i += ft_printchar(n % 16 + 87);
+		i += ft_printchar(n % 16 + b);
 	return (ft_countdigits_hex(n));
 }
