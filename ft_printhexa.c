@@ -28,9 +28,3 @@ int	ft_printhexa(unsigned long long n)
 		i += ft_printchar(n % 16 + 87);
 	return (ft_countdigits_hex(n));
 }
-
-int main(void)
-{
-	ft_printhexa(43654,87);
-	return 0;
-}
