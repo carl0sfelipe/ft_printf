@@ -4,8 +4,11 @@
 
 int main()
 {
-	ft_printf("mPrinting characters: '%c' '%s' '%u' '%d' '%%' '%%%'\n", 'A', "AA",-1,9,'a');
-	printf("oPrinting characters: '%c' '%s' '%u' '%d' '%%' '%%%'", 'A', "AA",-1,9,'a');
+
+	int teste = 234567;
+
+	ft_printf("mPrinting characters: '%c' '%s' '%u' '%d' '%x' '%%%'\n", 'A', "AA",-1,teste,'a');
+	printf("oPrinting characters: '%c' '%s' '%u' '%d' '%x' '%%%'", 'A', "AA",-1,teste,'a');
 
 	return 0;
 }
