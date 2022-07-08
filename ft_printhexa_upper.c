@@ -21,7 +21,7 @@ int	ft_printhexa_upper(unsigned long long n)
 
 	i = 0;
 	if (n > 15)
-		ft_printhexa(n / 16, b);
+		ft_printhexa_upper(n / 16);
 	if (n % 16 < 10)
 		i += ft_printchar(n % 16 + '0');
 	else

@@ -17,7 +17,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 int ft_printchar(int param);
 int	ft_putunbr(unsigned int n);
 char	*ft_utoa(unsigned int n);
-int	ft_printhexa(unsigned long long n, int b)
+int	ft_printhexa(unsigned long long n, int b);
 int ft_printptr(unsigned long long ptr,int b);
 
 #endif

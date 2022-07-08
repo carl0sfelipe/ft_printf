@@ -5,10 +5,10 @@
 int main()
 {
 
-	int teste = 234567;
+	int *teste = 320000;
 
-	ft_printf("mPrinting characters: '%c' '%s' '%u' '%d' '%x' '%%%'\n", 'A', "AA",-1,teste,'a');
-	printf("oPrinting characters: '%c' '%s' '%u' '%d' '%x' '%%%'", 'A', "AA",-1,teste,'a');
+	ft_printf("mPrinting characters: '%p'\n",teste);
+	printf("oPrinting characters:  '%p' ", teste);
 
 	return 0;
 }
